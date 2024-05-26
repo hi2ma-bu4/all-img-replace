@@ -3,7 +3,7 @@
 // @name:ja           画像全置換
 // @name:en           All image replace
 // @namespace         https://snowshome.page.link/p
-// @version           1.3.5
+// @version           1.3.6
 // @description       ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:ja    ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:en    Replace all images on the page with the specified image. It's malicious because it's simple.
