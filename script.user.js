@@ -1,15 +1,18 @@
 // ==UserScript==
 // @name              画像全置換
 // @name:ja           画像全置換
+// @name:en           All image replace
 // @namespace         https://snowshome.page.link/p
-// @version           1.3.1
-// @description       ページ上の画像を全て指定画像に置換する
-// @description:ja    ページ上の画像を全て指定画像に置換する
+// @version           1.3.2
+// @description       ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
+// @description:ja    ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
+// @description:en    Replace all images on the page with the specified image. It's malicious because it's simple.
 // @author            snows
 // @license           GPL-3.0
 // @match             *://*/*
 // @match             file:///*/*
-// @icon              https://paiza.jp/neko_sensei/01_05.gif
+// @icon              https://i.gifer.com/ZKZg.gif
+// @supportURL        https://github.com/hi2ma-bu4/all-img-replace
 // @compatible        chrome
 // @compatible        edge
 // @compatible        opera chromium製なので動くと仮定
@@ -20,6 +23,10 @@
 // @grant             GM.registerMenuCommand
 // @run-at            document-start
 // ==/UserScript==
+
+/*
+
+*/
 
 (function() {
     'use strict';
@@ -153,7 +160,7 @@
 
     const isTopWindow = window == window.top;
 
-    const menu_command_id_1 = GM.registerMenuCommand("設定を開く", function (event) {
+    const menu_command_id_1 = GM.registerMenuCommand("Open Settings", function (event) {
         menuOpen();
     }, {
         accessKey: "s",
@@ -204,7 +211,7 @@
                 clearInterval(si);
                 DCL();
             }
-        },100);
+        },1000);
     }
 
     function DCL(){
@@ -236,6 +243,8 @@
             if(!document.querySelector(`link:is([rel="icon"],[rel="shortcut icon"])`)){
                 addFavicon();
             }
+            // 定期リサーチ設定
+            reSearch();
         }, 1000)
     }
 
@@ -275,15 +284,42 @@
         }
         let cou = 0;
 
-        // ファビコン置き換え
-        cou += replaceFavicon(elem);
-        // src置き換え
-        cou += replaceSrcElem(elem);
-        // style置き換え
-        cou += replaceStyleElem(elem);
-        // svg置き換え(これは必ず最後に設置)
-        cou += replaceSvgElem(elem);
+        if(c_urlKeys.length){
+            // ファビコン置き換え
+            cou += replaceFavicon(elem);
+            // src置き換え
+            cou += replaceSrcElem(elem);
+            // style置き換え
+            cou += replaceStyleElem(elem);
+        }
+        if(c_base64Keys.length){
+            // svg置き換え(これは必ず最後に設置)
+            cou += replaceSvgElem(elem);
+        }
 
+        return cou;
+    }
+
+    function reSearch(){
+        let cou = 0;
+        // スタイルタグ再巡回
+        cou += styleReSearch();
+
+        if(cou){
+            log("reSearch実行-変更数:", cou);
+        }
+        // wait
+        setTimeout(reSearch, 500);
+    }
+
+
+    function styleReSearch(){
+        let cou = 0;
+        const elems = document.querySelectorAll(`:is([style],[class]).${REPLACE_CHECK_CLASS}:not(.${REPLACE_REDETECTION_CLASS})`);
+        for(let e of elems){
+            e.classList.remove(REPLACE_CHECK_CLASS);
+            cou += changeDOM(e);
+        }
         return cou;
     }
 
