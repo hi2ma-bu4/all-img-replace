@@ -3,16 +3,19 @@
 // @name:ja           画像全置換
 // @name:en           All image replace
 // @namespace         https://snowshome.page.link/p
-// @version           1.3.3
+// @version           1.3.4
 // @description       ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:ja    ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:en    Replace all images on the page with the specified image. It's malicious because it's simple.
-// @author            snows
+// @author            tromtub(snows)
 // @license           GPL-3.0
 // @match             *://*/*
 // @match             file:///*/*
 // @icon              https://i.gifer.com/ZKZg.gif
+// @updateURL         https://github.com/hi2ma-bu4/all-img-replace/raw/main/script.user.js
+// @downloadURL       https://github.com/hi2ma-bu4/all-img-replace/raw/main/script.user.js
 // @supportURL        https://github.com/hi2ma-bu4/all-img-replace
+// @supportURL        https://greasyfork.org/ja/scripts/496146-%E7%94%BB%E5%83%8F%E5%85%A8%E7%BD%AE%E6%8F%9B
 // @compatible        chrome
 // @compatible        edge
 // @compatible        opera chromium製なので動くと仮定
