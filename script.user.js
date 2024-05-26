@@ -3,7 +3,7 @@
 // @name:ja           画像全置換
 // @name:en           All image replace
 // @namespace         https://snowshome.page.link/p
-// @version           1.3.6
+// @version           1.3.7
 // @description       ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:ja    ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:en    Replace all images on the page with the specified image. It's malicious because it's simple.
@@ -77,70 +77,70 @@
 
     const BASE_CSS = `
 .${HIDE_CLASS} {
-  display: none;
+    display: none;
 }
 #${MENU_ID} {
-  position: fixed;
-  top: 0;
-  left: 0;
-  max-width: 100dvw;
-  min-width: 20em;
-  max-height: 95dvh;
-  min-height: 10em;
-  background-color: rgba(230,230,230,.8);
-  border: black 2px solid;
-  z-index: 114514;
-  user-select: none;
-  overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 100dvw;
+    min-width: 20em;
+    max-height: 95dvh;
+    min-height: 10em;
+    background-color: rgba(230,230,230,.8);
+    border: black 2px solid;
+    z-index: 114514;
+    user-select: none;
+    overflow: auto;
 }
 
 #${MENU_ID} > div:not(#${MENU_TOOLBAR_ID}) {
-  padding: 1em;
+    padding: 1em;
 }
 
 #${MENU_ID} input, #${PREVIEW_ID} {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .${MENU_INNER_CLASS} {
-  width: 100%;
-  background-color: rgba(200,200,200,.2);
-  margin-bottom: .5em;
+    width: 100%;
+    background-color: rgba(200,200,200,.2);
+    margin-bottom: .5em;
 }
 
 .${MENU_INNER_CLASS} label {
-  display: inline-block;
-  width: 100%;
+    display: inline-block;
+    width: 100%;
 }
 .${MENU_INNER_CLASS} :is(input, select) {
-  width:100%;
+    width:100%;
 }
 
 #${MENU_ID} h3 {
-  margin-bottom: .5em;
+    margin-bottom: .5em;
 }
 #${MENU_ID} h4 {
-  margin: 0 0 .5em .5em;
-  font-size: 1.1em;
+    margin: 0 0 .5em .5em;
+    font-size: 1.1em;
 }
 
 #${PREVIEW_ID} {
-  width: 100%;
-  background-color: greenyellow;
-  border: black 1px solid;
+    width: 100%;
+    background-color: greenyellow;
+    border: black 1px solid;
 }
 #${PREVIEW_ID} img {
-  width: 100%;
-  min-height: 3em;
+    width: 100%;
+    min-height: 3em;
 }
 
 #${MENU_TOOLBAR_ID} {
-  display: flex;
-  position: sticky;
-  flex-direction: row-reverse;
-  right: 0;
-  bottom: 0;
+    display: flex;
+    position: sticky;
+    flex-direction: row-reverse;
+    right: 0;
+    bottom: 0;
 }
 `
 
