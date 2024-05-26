@@ -3,7 +3,7 @@
 // @name:ja           画像全置換
 // @name:en           All image replace
 // @namespace         https://snowshome.page.link/p
-// @version           1.3.2
+// @version           1.3.3
 // @description       ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:ja    ページ上の画像を全て指定画像に置換する。シンプル故に悪質。
 // @description:en    Replace all images on the page with the specified image. It's malicious because it's simple.
@@ -243,9 +243,10 @@
             if(!document.querySelector(`link:is([rel="icon"],[rel="shortcut icon"])`)){
                 addFavicon();
             }
-            // 定期リサーチ設定
-            reSearch();
-        }, 1000)
+        }, 1000);
+
+        // 定期リサーチ設定
+        reSearch();
     }
 
     function obs(mutations){
@@ -309,7 +310,7 @@
             log("reSearch実行-変更数:", cou);
         }
         // wait
-        setTimeout(reSearch, 500);
+        setTimeout(reSearch, 1000);
     }
 
 
